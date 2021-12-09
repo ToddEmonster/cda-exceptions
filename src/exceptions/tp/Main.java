@@ -2,6 +2,7 @@ package exceptions.tp;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Main {
@@ -34,17 +35,30 @@ public class Main {
         ));
         madagascar.setName("Madagasikara");
         displayCountries();
+
+        System.out.println("\ne)");
+        ArrayList<String> stringCountries = new ArrayList<>();
+        stringCountries.add("FRANCE");
+        stringCountries.add("BELGIQUE");
+        Collections.sort(stringCountries);
+        displayCountriesFromList(stringCountries);
+
+
     }
 
     private static void displayNbCountries() {
         System.out.println(String.format("La collection créée contient %s pays !", countries.size()));
     }
     private static void displayCountries() {
-        if (countries.size() == 0) {
+        displayCountriesFromList(countries);
+    }
+
+    private static void displayCountriesFromList(ArrayList arrayList) {
+        if (arrayList.size() == 0) {
             System.out.println("Liste vide");
         } else {
             displayNbCountries();
-            countries.forEach(c -> System.out.println(c));
+            arrayList.forEach(c -> System.out.println(c));
         }
     }
 }
